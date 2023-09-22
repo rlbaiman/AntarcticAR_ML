@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --time=12:00:00
 #SBATCH --mem=40G
-#SBATCH --ntasks=5
+#SBATCH --ntasks=3
 #SBATCH --qos=blanca-winters
 #SBATCH --output=Make_data.log
 #SBATCH --job-name=make_data
@@ -23,5 +23,5 @@ module load cdo/1.8.1
 source /curc/sw/anaconda3/latest
 conda activate research
 
-parallel -j $SLURM_NTASKS python Make_data.py ::: {0..39}
+parallel -j $SLURM_NTASKS python Make_data.py ::: {20..23}
 

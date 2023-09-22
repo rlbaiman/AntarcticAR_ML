@@ -22,17 +22,19 @@ variable_files = [
     fp+str(year)+'*',
     fp+'EFLUX/EFLUX_'+str(year)+'*',
     fp+'LWTNET/LWTNET_'+str(year)+'*',
-    fp+'200streamfunc/sf_'+str(year)+'*'   
+    fp+'200streamfunc/sf_'+str(year)+'*',
+    
 ]
 variables = [
     'U',
     'V',
     'T',
-    'SLP'
+    'SLP',
     'H',
     'EFLUX',
     'LWTNET',
-    'sf' 
+    'sf',
+    
 ]
 variable_levels = [
     '950',
@@ -42,7 +44,7 @@ variable_levels = [
     '500',
     None,
     None,
-    None,    
+    None, 
 ]
 
 def resample(file_name): 
@@ -69,7 +71,7 @@ for i in range(len(variables)):
     print(variables[i]+'_'+str(year)+' in variable_yr_files_2')
     
     resample(variables[i]+'_'+str(year))
-    print(file_name+' in variable_yr_files_3')
+    print(variables[i]+'_'+str(year)+' in variable_yr_files_3')
   
 
     os.system('rm '+fp_out_1+variables[i]+'_'+str(year))
