@@ -77,3 +77,8 @@ for i in range(len(variables)):
     os.system('rm '+fp_out_1+variables[i]+'_'+str(year))
     os.system('rm '+fp_out_2+variables[i]+'_'+str(year))
         
+        
+###
+## Make normalized anomalies
+
+fp_out_3 = '/rc_scratch/reba1583/variable_yr_files_3/'
