@@ -81,3 +81,31 @@ ds = xr.Dataset(
 )
 
 ds.to_netcdf('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/ML_testing/3yr_norm_anom/data')
+
+
+############
+
+# Import necessary libraries
+import numpy as np
+import xarray as xr
+import pandas as pd
+import matplotlib.pyplot as plt
+
+ds_train_xr = xr.open_dataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/ML_testing/3yr_norm_anom/trimmed_ds_train.nc').transpose('time','lon','lat','n_channel')
+ds_val_xr = xr.open_dataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/ML_testing/3yr_norm_anom/trimmed_ds_validate.nc').transpose('time','lon','lat','n_channel')
+ds_test_xr = xr.open_dataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/ML_testing/3yr_norm_anom/trimmed_ds_test.nc').transpose('time','lon','lat','n_channel')
+
+
+ds_train = ds_train_xr.fillna(0)
+ds_val = ds_val_xr.fillna(0)
+ds_test = ds_test_xr.fillna(0)
+
+ds_train.to_netcdf('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/ML_testing/3yr_norm_anom/trim_ds_train.nc')
+ds_test.to_netcdf('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/ML_testing/3yr_norm_anom/trim_ds_test.nc')
+ds_val.to_netcdf('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/ML_testing/3yr_norm_anom/trim_ds_validate.nc')
+
+
+
+
+
+
