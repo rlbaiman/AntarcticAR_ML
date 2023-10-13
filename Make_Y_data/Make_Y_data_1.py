@@ -2,12 +2,11 @@
 import numpy as np
 import xarray as xr
 import pandas as pd
-import matplotlib.pyplot as plt
 import sys
 import os
 
 
-i = int(sys.argv[1])
+i = int(sys.argv[1]) # i ranges from 1 to 12 representing the months
 
 
 variables = [
@@ -21,10 +20,10 @@ variable_files = [
    
 for n in range(len(variables)):
     data = xr.open_mfdataset(variable_files[n]).sel(time = slice('1980-01-01','2019-12-31'), lat = slice(-90,-60))
-    data = data.where(data.time.dt.month.isin([i]), drop=True)
-    data = data.chunk({'time':len(data.time),'lon':2, 'lat':2})  
-    data = data.assign_coords({'month':('month',[i])})
-    monthly_quantiles = data.quantile([.90, .95, .98, .99], dim = 'time')
+    data = data.where(data.time.dt.month.isin([i]), drop=True) # only select one month due to memory limitations
+    data = data.chunk({'time':len(data.time),'lon':2, 'lat':2}) # no chunking of time because calculations are done on the time dim
+    data = data.assign_coords({'month':('month',[i])}) # add a month label to ensure easy combining of the resulting .nc files
+    monthly_quantiles = data.quantile([.90, .95, .98, .99], dim = 'time') # here we select a bunch of quantiles but only end up using one
     monthly_quantiles.to_netcdf('/rc_scratch/reba1583/monthly_quantiles/'+variables[n]+'_month'+str(i))
     del data
     del monthly_quantiles
