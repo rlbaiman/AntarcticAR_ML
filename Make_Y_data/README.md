@@ -37,3 +37,4 @@
 ### 4. Plot Y variable data
 #### Plot_Y_data.ipynb
 * plot individual timesteps of Y data to check it out
+![example of Y data at one timestep](Y_data_example.png)
