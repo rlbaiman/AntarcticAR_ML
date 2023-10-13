@@ -5,7 +5,8 @@
 
 * Run in parallel over year 1980 - 2019
 * Variables include:
-|| Variable | Level | Lats Included | Lead Times |
+
+| | Variable | Level | Lats Included | Lead Times |
 |:---:| :---:     |  :---:|  :---:        | :---: |
 |1| U wind | 950hPa |    -75, -45 ||
 |2| V wind | 950hPa |    -75, -45 ||
@@ -15,6 +16,7 @@
 |6 |Tropical Convection| |  -30, 0 | 4 days|
 |7 |Stream Function| |   -90, 0 |2 days |
 |8|IWV|  |    -0, -40 ||
+
 * Select the year, level, and variable using cdo commands. These are saved to scratch directories because memory did not allow loading these to work with
 * Call function Resample
     * Resample to 6hourly mean (this may smooth some snomalous values but we will calculate the standardized anomalies based on these values so we should capture anomalies)
