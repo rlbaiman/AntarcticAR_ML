@@ -1,0 +1,690 @@
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+Traceback (most recent call last):
+  File "Make_Y_data_2.py", line 30, in <module>
+    new_xarray = new_xarray.sel(time = timesteps.where(timesteps>0, drop = True).time)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataarray.py", line 1337, in sel
+    **indexers_kwargs,
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/dataset.py", line 2505, in sel
+    self, indexers=indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/coordinates.py", line 422, in remap_label_indexers
+    obj, v_indexers, method=method, tolerance=tolerance
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py", line 120, in remap_label_indexers
+    idxr, new_idx = index.query(labels, method=method, tolerance=tolerance)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexes.py", line 242, in query
+    raise KeyError(f"not all values found in index {coord_name!r}")
+KeyError: "not all values found in index 'time'"
