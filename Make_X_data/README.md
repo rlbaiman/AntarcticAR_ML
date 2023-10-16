@@ -5,8 +5,7 @@
 
 * Run in parallel over year 1980 - 2019
 * Variables include:
-
-| | Variable | Level | Lats Included | Lead Times |
+|| Variable | Level | Lats Included | Lead Times |
 |:---:| :---:     |  :---:|  :---:        | :---: |
 |1| U wind | 950hPa |    -75, -45 ||
 |2| V wind | 950hPa |    -75, -45 ||
@@ -16,10 +15,9 @@
 |6 |Tropical Convection| |  -30, 0 | 4 days|
 |7 |Stream Function| |   -90, 0 |2 days |
 |8|IWV|  |    -0, -40 ||
-
 * Select the year, level, and variable using cdo commands. These are saved to scratch directories because memory did not allow loading these to work with
 * Call function Resample
-    * Resample to 6hourly mean (this may smooth some snomalous values but we will calculate the standardized anomalies based on these values so we should capture anomalies)
+    * Resample to 6hourly mean (this may smooth some anomalous values but we will calculate the standardized anomalies based on these values so we should capture anomalies)
     * If you want a leadtime x, shift data forward by that amount, leaving nan values for the first x hours 
     * Interpolate data using the Lats Included and -180 to 180 longitude for each variable. 
     (lon: 576, lat: 181) ->  (lon: 256, lat: 32)
@@ -38,5 +36,10 @@
     * IWV is not normaly distributed because it starts at zero and has a long right tail.
         Calculate standard deviation by assuming a normal distribution of the right half 
         and a mirror image of the right half. 
-* From based on the mean and standard deviation, calculate the monthly standardized anomalies
+* Based on the monthly mean and standard deviation, calculate the monthly standardized anomalies
 * Save to a new directory 
+
+### 2. Plot X variable data
+#### Plot_X_data.ipynb
+* plot individual timesteps of X data to check it out
+![example of Y data at one timestep](X_data_example.png)

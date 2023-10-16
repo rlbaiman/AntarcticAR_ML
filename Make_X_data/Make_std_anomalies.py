@@ -22,8 +22,8 @@ def make_IWV_climo_stats(data_input):
     
     data_updated = xr.concat((data1, data2), dim = 'time')
     
-    mean_out = data_updated.groupby("month").mean('time')
-    std_out = data_updated.groupby("month").std('time')
+    mean_out = data_updated.groupby("time.month").mean('time')
+    std_out = data_updated.groupby("time.month").std('time')
     return(mean_out, std_out)
 
 
@@ -42,7 +42,9 @@ variable = variables[variable_index]
 
 
 data = xr.open_mfdataset(fp_out_3+variable+'*').load()
-
+if 'lev' in data.dims:
+    data = data.squeeze()
+    data = data.drop('lev')
 
 #add uniform lat_index
 lat_index = np.arange(0,32)
@@ -65,5 +67,5 @@ else:
         climo_mean,
         climo_std,
     )
-
+    stand_anomalies = stand_anomalies.drop('month')
     stand_anomalies.to_netcdf('/rc_scratch/reba1583/variable_yr_files_4/'+variable)

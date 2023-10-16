@@ -101,29 +101,36 @@ variable_leadtimes = [
 
 
 for i in range(len(variables)):
+    variable = variables[i]
+    file_name = variable+'_'+str(year)
     
-    if False == os.path.exists('/rc_scratch/reba1583/variable_yr_files_3/'+variables[i]+'_'+str(year)+'.nc'):
+    
+    if os.path.exists(fp_out_3+file_name+'.nc'):
+        print(file_name+' already processed')
+    
+    else:
+        print('creating '+file_name)  
 
         # select the variable
-        command = 'cdo -select,name='+variables[i]+' '+variable_files[i]+' '+fp_out_1+variables[i]+'_'+str(year)
+        command = 'cdo -select,name='+variable+' '+variable_files[i]+' '+fp_out_1+variable+'_'+str(year)
         os.system(command)
 
         # select the level if necessary
         if variable_levels[i] is None:
-            command_2 = 'cp '+fp_out_1+variables[i]+'_'+str(year)+' '+fp_out_2+variables[i]+'_'+str(year)
+            command_2 = 'cp '+fp_out_1+variable+'_'+str(year)+' '+fp_out_2+variable+'_'+str(year)
             os.system(command_2)
 
         else:
-            command_3 = 'cdo -sellevel,'+variable_levels[i]+' '+fp_out_1+variables[i]+'_'+str(year)+' '+fp_out_2+variables[i]+'_'+str(year)
+            command_3 = 'cdo -sellevel,'+variable_levels[i]+' '+fp_out_1+variable+'_'+str(year)+' '+fp_out_2+variable+'_'+str(year)
             os.system(command_3)
 
-        print(variables[i]+'_'+str(year)+' in variable_yr_files_2')
-    
+        print(variable+'_'+str(year)+' in variable_yr_files_2')
 
 
-        resample(variables[i]+'_'+str(year), i)
-        print(variables[i]+'_'+str(year)+' in variable_yr_files_3')
-  
 
-        os.system('rm '+fp_out_1+variables[i]+'_'+str(year))
-        os.system('rm '+fp_out_2+variables[i]+'_'+str(year))
+        resample(file_name, i)
+        print(file_name+' in variable_yr_files_3')
+
+
+        os.system('rm '+fp_out_1+file_name)
+        os.system('rm '+fp_out_2+file_name)
