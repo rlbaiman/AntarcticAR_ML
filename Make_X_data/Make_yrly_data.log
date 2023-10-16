@@ -1,0 +1,706 @@
+
+Due to MODULEPATH changes the following have been reloaded:
+  1) hdf5/1.10.0  2) netcdf/4.4.1.1
+
+U_1981 already processed
+V_1981 already processed
+T_1981 already processed
+SLP_1981 already processed
+EFLUX_1981 already processed
+LWTNET_1981 already processed
+sf_1981 already processed
+IWV_1981 already processed
+U_1980 already processed
+V_1980 already processed
+T_1980 already processed
+SLP_1980 already processed
+EFLUX_1980 already processed
+LWTNET_1980 already processed
+sf_1980 already processed
+IWV_1980 already processed
+U_1982 already processed
+V_1982 already processed
+T_1982 already processed
+SLP_1982 already processed
+EFLUX_1982 already processed
+LWTNET_1982 already processed
+sf_1982 already processed
+IWV_1982 already processed
+U_1987 already processed
+V_1987 already processed
+T_1987 already processed
+SLP_1987 already processed
+EFLUX_1987 already processed
+LWTNET_1987 already processed
+sf_1987 already processed
+IWV_1987 already processed
+U_1989 already processed
+V_1989 already processed
+T_1989 already processed
+SLP_1989 already processed
+EFLUX_1989 already processed
+LWTNET_1989 already processed
+sf_1989 already processed
+IWV_1989 already processed
+U_1984 already processed
+V_1984 already processed
+T_1984 already processed
+SLP_1984 already processed
+EFLUX_1984 already processed
+LWTNET_1984 already processed
+sf_1984 already processed
+IWV_1984 already processed
+U_1990 already processed
+V_1990 already processed
+T_1990 already processed
+SLP_1990 already processed
+EFLUX_1990 already processed
+LWTNET_1990 already processed
+sf_1990 already processed
+IWV_1990 already processed
+U_1992 already processed
+V_1992 already processed
+T_1992 already processed
+SLP_1992 already processed
+EFLUX_1992 already processed
+LWTNET_1992 already processed
+sf_1992 already processed
+IWV_1992 already processed
+U_1994 already processed
+V_1994 already processed
+T_1994 already processed
+SLP_1994 already processed
+EFLUX_1994 already processed
+LWTNET_1994 already processed
+sf_1994 already processed
+IWV_1994 already processed
+U_1991 already processed
+V_1991 already processed
+T_1991 already processed
+SLP_1991 already processed
+EFLUX_1991 already processed
+LWTNET_1991 already processed
+sf_1991 already processed
+IWV_1991 already processed
+U_1993 already processed
+V_1993 already processed
+T_1993 already processed
+SLP_1993 already processed
+EFLUX_1993 already processed
+LWTNET_1993 already processed
+sf_1993 already processed
+IWV_1993 already processed
+U_1995 already processed
+V_1995 already processed
+T_1995 already processed
+SLP_1995 already processed
+EFLUX_1995 already processed
+LWTNET_1995 already processed
+sf_1995 already processed
+IWV_1995 already processed
+U_1999 already processed
+V_1999 already processed
+T_1999 already processed
+SLP_1999 already processed
+EFLUX_1999 already processed
+LWTNET_1999 already processed
+sf_1999 already processed
+IWV_1999 already processed
+U_1996 already processed
+V_1996 already processed
+T_1996 already processed
+SLP_1996 already processed
+EFLUX_1996 already processed
+LWTNET_1996 already processed
+sf_1996 already processed
+IWV_1996 already processed
+U_1997 already processed
+V_1997 already processed
+T_1997 already processed
+SLP_1997 already processed
+EFLUX_1997 already processed
+LWTNET_1997 already processed
+sf_1997 already processed
+IWV_1997 already processed
+U_1998 already processed
+V_1998 already processed
+T_1998 already processed
+SLP_1998 already processed
+EFLUX_1998 already processed
+LWTNET_1998 already processed
+sf_1998 already processed
+IWV_1998 already processed
+U_1986 already processed
+V_1986 already processed
+T_1986 already processed
+SLP_1986 already processed
+EFLUX_1986 already processed
+creating LWTNET_1986
+LWTNET_1986 in variable_yr_files_2
+LWTNET_1986 in variable_yr_files_3
+creating sf_1986
+sf_1986 in variable_yr_files_2
+sf_1986 in variable_yr_files_3
+creating IWV_1986
+IWV_1986 in variable_yr_files_2
+IWV_1986 in variable_yr_files_3
+cdo select: Processed 304427520 values from 365 variables over 2920 timesteps ( 5.99s )
+cdo select: Processed 607173120 values from 12 variables over 2920 timesteps ( 6.20s )
+cdo select: Processed 607173120 values from 1 variable over 2920 timesteps ( 6.03s )
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+U_1988 already processed
+V_1988 already processed
+T_1988 already processed
+SLP_1988 already processed
+EFLUX_1988 already processed
+creating LWTNET_1988
+LWTNET_1988 in variable_yr_files_2
+LWTNET_1988 in variable_yr_files_3
+creating sf_1988
+sf_1988 in variable_yr_files_2
+sf_1988 in variable_yr_files_3
+creating IWV_1988
+IWV_1988 in variable_yr_files_2
+IWV_1988 in variable_yr_files_3
+cdo select: Processed 305261568 values from 366 variables over 2928 timesteps ( 6.18s )
+cdo select: Processed 608836608 values from 12 variables over 2928 timesteps ( 6.23s )
+cdo select: Processed 608836608 values from 1 variable over 2928 timesteps ( 6.06s )
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+U_1985 already processed
+V_1985 already processed
+T_1985 already processed
+SLP_1985 already processed
+EFLUX_1985 already processed
+creating LWTNET_1985
+LWTNET_1985 in variable_yr_files_2
+LWTNET_1985 in variable_yr_files_3
+creating sf_1985
+sf_1985 in variable_yr_files_2
+sf_1985 in variable_yr_files_3
+creating IWV_1985
+IWV_1985 in variable_yr_files_2
+IWV_1985 in variable_yr_files_3
+cdo select: Processed 304427520 values from 365 variables over 2920 timesteps ( 6.07s )
+cdo select: Processed 607173120 values from 12 variables over 2920 timesteps ( 5.91s )
+cdo select: Processed 607173120 values from 1 variable over 2920 timesteps ( 6.10s )
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+U_1983 already processed
+V_1983 already processed
+T_1983 already processed
+SLP_1983 already processed
+EFLUX_1983 already processed
+creating LWTNET_1983
+LWTNET_1983 in variable_yr_files_2
+LWTNET_1983 in variable_yr_files_3
+creating sf_1983
+sf_1983 in variable_yr_files_2
+sf_1983 in variable_yr_files_3
+creating IWV_1983
+IWV_1983 in variable_yr_files_2
+IWV_1983 in variable_yr_files_3
+cdo select: Processed 304427520 values from 365 variables over 2920 timesteps ( 6.08s )
+cdo select: Processed 607173120 values from 12 variables over 2920 timesteps ( 6.20s )
+cdo select: Processed 607173120 values from 1 variable over 2920 timesteps ( 5.92s )
+/home/reba1583/.local/lib/python3.7/site-packages/xarray/core/indexing.py:1227: PerformanceWarning: Slicing is producing a large chunk. To accept the large
+chunk and silence this warning, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': False}):
+    ...     array[indexer]
+
+To avoid creating the large chunks, set the option
+    >>> with dask.config.set(**{'array.slicing.split_large_chunks': True}):
+    ...     array[indexer]
+  return self.array[key]
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2006 already processed
+V_2006 already processed
+creating T_2006
+T_2006 in variable_yr_files_2
+T_2006 in variable_yr_files_3
+creating SLP_2006
+SLP_2006 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 81840960 values from 1 variable over 785 timesteps ( 7.36s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2006*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2006': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2010
+U_2010 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2010*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2010<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2007 already processed
+V_2007 already processed
+creating T_2007
+T_2007 in variable_yr_files_2
+T_2007 in variable_yr_files_3
+creating SLP_2007
+SLP_2007 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 83300544 values from 1 variable over 799 timesteps ( 7.50s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2007*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2007': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2011
+U_2011 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2011*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2011<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2012
+U_2012 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2012*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2012<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2013
+U_2013 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2013*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2013<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2014
+U_2014 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2014*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2014<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2015
+U_2015 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2015*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2015<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2016
+U_2016 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2016*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2016<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2017
+U_2017 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2017*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2017<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2018
+U_2018 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2018*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2018<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+
+
+creating U_2019
+U_2019 in variable_yr_files_2
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2019*<
+Stale file handle
+cdo sellevel: Open failed on >/rc_scratch/reba1583/variable_yr_files/U_2019<
+No such file or directory
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2005 already processed
+V_2005 already processed
+creating T_2005
+T_2005 in variable_yr_files_2
+T_2005 in variable_yr_files_3
+creating SLP_2005
+SLP_2005 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 116141184 values from 1 variable over 1114 timesteps ( 10.18s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2005*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2005': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2003 already processed
+V_2003 already processed
+creating T_2003
+T_2003 in variable_yr_files_2
+T_2003 in variable_yr_files_3
+creating SLP_2003
+SLP_2003 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 116558208 values from 1 variable over 1118 timesteps ( 10.23s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2003*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2003': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2004 already processed
+V_2004 already processed
+creating T_2004
+T_2004 in variable_yr_files_2
+T_2004 in variable_yr_files_3
+creating SLP_2004
+SLP_2004 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 116349696 values from 1 variable over 1116 timesteps ( 10.01s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2004*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2004': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2002 already processed
+V_2002 already processed
+creating T_2002
+T_2002 in variable_yr_files_2
+T_2002 in variable_yr_files_3
+creating SLP_2002
+SLP_2002 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 118122048 values from 1 variable over 1133 timesteps ( 10.18s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2002*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2002': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2001 already processed
+V_2001 already processed
+creating T_2001
+T_2001 in variable_yr_files_2
+T_2001 in variable_yr_files_3
+creating SLP_2001
+SLP_2001 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 120832704 values from 1 variable over 1159 timesteps ( 10.49s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2001*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2001': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2000 already processed
+V_2000 already processed
+creating T_2000
+T_2000 in variable_yr_files_2
+T_2000 in variable_yr_files_3
+creating SLP_2000
+SLP_2000 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 140328576 values from 1 variable over 1346 timesteps ( 12.47s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2000*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2000': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2008 already processed
+V_2008 already processed
+creating T_2008
+T_2008 in variable_yr_files_2
+T_2008 in variable_yr_files_3
+creating SLP_2008
+SLP_2008 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 153569088 values from 1 variable over 1473 timesteps ( 13.84s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2008*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2008': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
+cdf_get_vara_float : ncid = 65536 varid = 10
+
+
+
+U_2009 already processed
+V_2009 already processed
+creating T_2009
+T_2009 in variable_yr_files_2
+T_2009 in variable_yr_files_3
+creating SLP_2009
+SLP_2009 in variable_yr_files_2
+Error (cdf_get_vara_float) : NetCDF: HDF error
+HDF5-DIAG: Error detected in HDF5 (1.10.0-patch1) thread 0:
+  #000: ../../hdf5-1.10.0-patch1/src/H5T.c line 1723 in H5Tclose(): not a datatype
+    major: Invalid arguments to routine
+    minor: Inappropriate type
+Error (cdf_close) : NetCDF: HDF error
+cdo sellevel: Processed 171188352 values from 1 variable over 1642 timesteps ( 15.85s )
+cdo select: Open failed on >/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/2009*<
+Stale file handle
+cp: cannot stat '/rc_scratch/reba1583/variable_yr_files/SLP_2009': No such file or directory
+/projects/reba1583/software/anaconda/envs/research/lib/python3.7/site-packages/dask/array/numpy_compat.py:39: RuntimeWarning: invalid value encountered in true_divide
+  x = np.divide(x1, x2, out)
+Traceback (most recent call last):
+  File "Make_yrly_data.py", line 131, in <module>
+    resample(file_name, i)
+  File "Make_yrly_data.py", line 26, in resample
+    data =  xr.open_mfdataset(fp_out_2+file_name)
+  File "/home/reba1583/.local/lib/python3.7/site-packages/xarray/backends/api.py", line 873, in open_mfdataset
+    raise OSError("no files to open")
+OSError: no files to open
