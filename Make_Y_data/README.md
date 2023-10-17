@@ -45,6 +45,5 @@
 
 * Based on testing, we need some changes to Make_Y_data_3 output. We save the original data becuase it could be useful in analysis
 * Open the data created in Maky_Y_data_3.py, only label landfalling ARs 1, everything else 0.
-* Randomely select an equal number of timesteps with and without ARs.
-* Randomely split timesteps into training (70%), testing (15%), and validating (15%)
 * Run in a batch script becuase of memory limitations
+
