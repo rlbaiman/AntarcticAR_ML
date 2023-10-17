@@ -38,3 +38,13 @@
 #### Plot_Y_data.ipynb
 * plot individual timesteps of Y data to check it out
 ![example of Y data at one timestep](Y_data_example.png)
+
+
+### 5. Make Y data that only labels AR
+#### Make_Y_data_4.py, Make_Y_data_4.script
+
+* Based on testing, we need some changes to Make_Y_data_3 output. We save the original data becuase it could be useful in analysis
+* Open the data created in Maky_Y_data_3.py, only label landfalling ARs 1, everything else 0.
+* Randomely select an equal number of timesteps with and without ARs.
+* Randomely split timesteps into training (70%), testing (15%), and validating (15%)
+* Run in a batch script becuase of memory limitations
