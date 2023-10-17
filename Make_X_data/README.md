@@ -14,7 +14,7 @@
 |5 |Upwards Latent Energy Flux|  |    -50, -20 ||
 |6 |Tropical Convection| |  -30, 0 | 4 days|
 |7 |Stream Function| |   -90, 0 |2 days |
-|8|IWV|  |    -0, -40 ||
+|8|IWV|  |    -70, -40 ||
 * Select the year, level, and variable using cdo commands. These are saved to scratch directories because memory did not allow loading these to work with
 * Call function Resample
     * Resample to 6hourly mean (this may smooth some anomalous values but we will calculate the standardized anomalies based on these values so we should capture anomalies)
