@@ -4,7 +4,8 @@
 #### Make_yrly_data.py, Make_yrly_data.script
 
 * Run in parallel over year 1980 - 2019
-* Variables include:
+* Variables include:'
+
 || Variable | Level | Lats Included | Lead Times |
 |:---:| :---:     |  :---:|  :---:        | :---: |
 |1| U wind | 950hPa |    -75, -45 ||
