@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --time=20:00:00
 #SBATCH --mem=100G
-#SBATCH --ntasks=10
+#SBATCH --ntasks=6
 #SBATCH --qos=blanca-winters
 #SBATCH --output=Make_yrly_data.log
 #SBATCH --job-name=make_data

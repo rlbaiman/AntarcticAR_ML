@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #SBATCH --nodes=1
-#SBATCH --time=20:00:00
+#SBATCH --time=1:00:00
 #SBATCH --mem=100G
-#SBATCH --ntasks=10
+#SBATCH --ntasks=8
 #SBATCH --qos=blanca-winters
-#SBATCH --output=Make_yrly_data.log
+#SBATCH --output=Make_anom_data.log
 #SBATCH --job-name=make_data
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user="rebecca.baiman@colorado.edu"
