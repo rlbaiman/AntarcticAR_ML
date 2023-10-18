@@ -41,31 +41,39 @@ variables = [
 variable = variables[variable_index]
 
 
-data = xr.open_mfdataset(fp_out_3+variable+'*').load()
-if 'lev' in data.dims:
-    data = data.squeeze()
-    data = data.drop('lev')
+if os.path.exists('/rc_scratch/reba1583/variable_yr_files_4/'+variable):
+    print(variable+' already processed')
 
-#add uniform lat_index
-lat_index = np.arange(0,32)
-data = data.assign_coords(lat_index=("lat", lat_index))
-data = data.swap_dims({'lat':'lat_index'})
-    
-if variable == 'LWTNET': # LWTNET is binary so it does not need to be normalized
-    data.to_netcdf('/rc_scratch/reba1583/variable_yr_files_4/'+variable)
 else:
-    if variable =='IWV':
-        # base standard deviation off of right half of IWV distribution
-        climo_mean, climo_std = make_IWV_climo_stats(data) 
-    else:
-        climo_mean = data.groupby("time.month").mean('time')
-        climo_std = data.groupby("time.month").std('time')
+    print('creating '+variable)  
 
-    stand_anomalies = xr.apply_ufunc(
-        lambda x, m, s: (x - m) / s,
-        data.groupby("time.month"),
-        climo_mean,
-        climo_std,
-    )
-    stand_anomalies = stand_anomalies.drop('month')
-    stand_anomalies.to_netcdf('/rc_scratch/reba1583/variable_yr_files_4/'+variable)
+
+    data = xr.open_mfdataset(fp_out_3+variable+'*').load()
+    if 'lev' in data.dims:
+        data = data.squeeze()
+        data = data.drop('lev')
+
+    #add uniform lat_index
+    lat_index = np.arange(0,32)
+    data = data.assign_coords(lat_index=("lat", lat_index))
+    data = data.swap_dims({'lat':'lat_index'})
+
+    if variable == 'LWTNET': # LWTNET is binary so it does not need to be normalized
+        data = xr.where(data == 3,2,0) #change binary data to have a value of 2
+        data.to_netcdf('/rc_scratch/reba1583/variable_yr_files_4/'+variable)
+    else:
+        if variable =='IWV':
+            # base standard deviation off of right half of IWV distribution
+            climo_mean, climo_std = make_IWV_climo_stats(data) 
+        else:
+            climo_mean = data.groupby("time.month").mean('time')
+            climo_std = data.groupby("time.month").std('time')
+
+        stand_anomalies = xr.apply_ufunc(
+            lambda x, m, s: (x - m) / s,
+            data.groupby("time.month"),
+            climo_mean,
+            climo_std,
+        )
+        stand_anomalies = stand_anomalies.drop('month')
+        stand_anomalies.to_netcdf('/rc_scratch/reba1583/variable_yr_files_4/'+variable)
