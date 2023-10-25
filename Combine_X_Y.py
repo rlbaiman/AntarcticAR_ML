@@ -30,7 +30,7 @@ del SLP
 del LWTNET
 
 # Y data
-Y = xr.open_mfdataset('/rc_scratch/reba1583/Y_data/Y_AR_only.nc').Y.transpose('time','lon','lat_index').values
+Y = xr.open_mfdataset('/rc_scratch/reba1583/Y_data/Y_fullAR.nc').Y.transpose('time','lon','lat_index').values
 
 # times for final xarray
 variable_times = pd.to_datetime(np.array(xr.open_mfdataset(fp+'U').time))
@@ -52,7 +52,24 @@ ds = xr.Dataset(
 )
 
 ds = ds.fillna(0)
-ds.to_netcdf('/rc_scratch/reba1583/full_data.nc')
+ds.to_netcdf('/rc_scratch/reba1583/data_fullAR/full_data.nc')
+
+
+# ## to get all ARs instead of landfalling ARs
+# ds = xr.open_mfdataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_Training_data/full_data.nc')
+# y = xr.open_mfdataset('/rc_scratch/reba1583/Y_data/Y_fullAR.nc')
+
+# new_y = xr.DataArray(np.transpose(y.Y.values, (0,2,1)),
+#                      coords = {'time': y.time.values, 'lon':ds.lon.values, 'lat':ds.lat.values},
+#                      dims = ['time', 'lon', 'lat'])
+# ds['labels_2d'] = new_y
+# ds = ds.load()
+# ### 
+
+
+
+
+
 
 ## get even number of timesteps with/without ARs
 AR_index = np.squeeze(np.where(ds.labels_2d.max(dim = ('lat','lon')).load()==1))
@@ -76,7 +93,7 @@ ds_train = data.isel(time = index_train)
 ds_test = data.isel(time = index_test)
 ds_validate = data.isel(time = index_validate)
 
-ds_train.to_netcdf('/rc_scratch/reba1583/train.nc')
-ds_test.to_netcdf('/rc_scratch/reba1583/test.nc')
-ds_validate.to_netcdf('/rc_scratch/reba1583/validate.nc')
+ds_train.to_netcdf('/rc_scratch/reba1583/data_fullAR/train.nc')
+ds_test.to_netcdf('/rc_scratch/reba1583/data_fullAR/test.nc')
+ds_validate.to_netcdf('/rc_scratch/reba1583/data_fullAR/validate.nc')
 
