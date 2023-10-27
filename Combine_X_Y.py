@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
+
 # X data
 fp = '/rc_scratch/reba1583/variable_yr_files_4/'
 
@@ -30,14 +31,16 @@ del SLP
 del LWTNET
 
 # Y data
-Y = xr.open_mfdataset('/rc_scratch/reba1583/Y_data/Y_fullAR.nc').Y.transpose('time','lon','lat_index').values
+Y = pd.read_csv('/rc_scratch/reba1583/Y_data/AR_lonslice.csv', index_col = False)
+Y = np.array(Y['0'])
+
 
 # times for final xarray
 variable_times = pd.to_datetime(np.array(xr.open_mfdataset(fp+'U').time))
 
 var_data = dict(
     features = ([ 'time', 'lon', 'lat','n_channel' ], data),
-    labels_2d = (['time', 'lon', 'lat'], Y)
+    labels_1d = (['time'], Y)
 )
 
 coords = dict(
@@ -52,30 +55,17 @@ ds = xr.Dataset(
 )
 
 ds = ds.fillna(0)
-ds.to_netcdf('/rc_scratch/reba1583/data_fullAR/full_data.nc')
-
-
-# ## to get all ARs instead of landfalling ARs
-# ds = xr.open_mfdataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_Training_data/full_data.nc')
-# y = xr.open_mfdataset('/rc_scratch/reba1583/Y_data/Y_fullAR.nc')
-
-# new_y = xr.DataArray(np.transpose(y.Y.values, (0,2,1)),
-#                      coords = {'time': y.time.values, 'lon':ds.lon.values, 'lat':ds.lat.values},
-#                      dims = ['time', 'lon', 'lat'])
-# ds['labels_2d'] = new_y
-# ds = ds.load()
-# ### 
 
 
 
+## only include the number of no AR examples that is equivalent in size to the most common label
+## This leaves us with a total dataset of 11,553 timesteps and 8,087 training timesteps
+num_noAR = np.max((len(Y[Y==1]), len(Y[Y==2]), len(Y[Y==3]), len(Y[Y==4]), len(Y[Y==5]), len(Y[Y==6]), len(Y[Y==7]) , len(Y[Y==8]), len(Y[Y==9]), len(Y[Y==10]))) 
 
-
-
-## get even number of timesteps with/without ARs
-AR_index = np.squeeze(np.where(ds.labels_2d.max(dim = ('lat','lon')).load()==1))
-noAR_index = np.setdiff1d(np.arange(len(ds.time)), AR_index)
+AR_index = np.argwhere(Y!=0).squeeze()
+noAR_index = np.argwhere(Y == 0).squeeze()
 np.random.shuffle(noAR_index)
-noAR_index = noAR_index[0:len(AR_index)]
+noAR_index = noAR_index[0:num_noAR]
 select = np.sort(np.concatenate((noAR_index, AR_index)))
 data = ds.isel(time = select)
 
@@ -93,7 +83,25 @@ ds_train = data.isel(time = index_train)
 ds_test = data.isel(time = index_test)
 ds_validate = data.isel(time = index_validate)
 
-ds_train.to_netcdf('/rc_scratch/reba1583/data_fullAR/train.nc')
-ds_test.to_netcdf('/rc_scratch/reba1583/data_fullAR/test.nc')
-ds_validate.to_netcdf('/rc_scratch/reba1583/data_fullAR/validate.nc')
+ds_train.to_netcdf('/rc_scratch/reba1583/CNN_data_limitNoAR/train.nc')
+ds_test.to_netcdf('/rc_scratch/reba1583/CNN_data_limitNoAR/test.nc')
+ds_validate.to_netcdf('/rc_scratch/reba1583/CNN_data_limitNoAR/validate.nc')
+
+
+
+
+
+
+
+
+# ## to get all ARs instead of landfalling ARs
+# ds = xr.open_mfdataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_Training_data/full_data.nc')
+# y = xr.open_mfdataset('/rc_scratch/reba1583/Y_data/Y_fullAR.nc')
+
+# new_y = xr.DataArray(np.transpose(y.Y.values, (0,2,1)),
+#                      coords = {'time': y.time.values, 'lon':ds.lon.values, 'lat':ds.lat.values},
+#                      dims = ['time', 'lon', 'lat'])
+# ds['labels_2d'] = new_y
+# ds = ds.load()
+# ### 
 
