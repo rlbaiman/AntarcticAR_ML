@@ -2,11 +2,11 @@
 
 
 #SBATCH --nodes=1
-#SBATCH --time=6:00:00
+#SBATCH --time=2:00:00
 #SBATCH --mem=100G
 #SBATCH --qos=blanca-winters
-#SBATCH --output=run_cnn_1.log
-#SBATCH --job-name=run_unet
+#SBATCH --output=run_cnn1.log
+#SBATCH --job-name=run_cnn
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user="rebecca.baiman@colorado.edu"
 

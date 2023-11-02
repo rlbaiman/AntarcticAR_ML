@@ -3,6 +3,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras import utils
 import pandas as pd
+import os
 
 import sys
 sys.path.insert(1, '/projects/reba1583/Research3/WAF_ML_Tutorial_Part2/scripts/')
@@ -10,9 +11,8 @@ from gewitter_functions import get_contingency_table,make_performance_diagram_ax
 from gewitter_functions import get_acc
 
 ## Inputs
-batch_size = 32
-epoch_num = 30
-
+batch_size = 64
+epoch_num = 10
 
 
 ds_train = xr.open_dataset('/rc_scratch/reba1583/CNN_data_limitNoAR/train.nc')
@@ -45,7 +45,17 @@ for batch in val_data:
 
 
 model = tf.keras.Sequential([
-    tf.keras.layers.Conv2D(32, (3, 3), padding='same', input_shape=(train_data.element_spec[0].shape[1:])),
+    tf.keras.layers.Conv2D(64, (3, 3), padding='same', input_shape=(train_data.element_spec[0].shape[1:])),
+    tf.keras.layers.BatchNormalization(),
+    tf.keras.layers.LeakyReLU(alpha=0.01),
+
+    tf.keras.layers.Conv2D(64, (3, 3), padding='same'),
+    tf.keras.layers.BatchNormalization(),
+    tf.keras.layers.LeakyReLU(alpha=0.01),
+    
+    tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),  # Add max pooling layer
+
+    tf.keras.layers.Conv2D(32, (3, 3), padding='same'),
     tf.keras.layers.BatchNormalization(),
     tf.keras.layers.LeakyReLU(alpha=0.01),
 
@@ -68,22 +78,19 @@ model = tf.keras.Sequential([
     tf.keras.layers.GlobalAveragePooling2D(),
     tf.keras.layers.Dropout(0.5),
 
-    tf.keras.layers.Dense(256, activation='relu'),  # Add dense layer
-    tf.keras.layers.Dropout(0.5),  # Add dropout layer
-    tf.keras.layers.Dense(128, activation='relu'),  # Add dense layer
-    tf.keras.layers.Dropout(0.5),  # Add dropout layer
-    tf.keras.layers.Dense(10, activation='softmax'),
-                           
-    #add two dense layers (which is the same as an ANN)
+    tf.keras.layers.Dense(256, activation='relu'),
+    tf.keras.layers.Dropout(0.3),
+    tf.keras.layers.Dense(64,activation='relu'),
+    tf.keras.layers.Dropout(0.3),  # Add dropout layer
+    tf.keras.layers.Dense(64, activation='relu'),  # Add dense layer
+    tf.keras.layers.Dropout(0.3),  # Add dropout layer
+    tf.keras.layers.Dense(32, activation='relu'),  # Add dense layer
+    tf.keras.layers.Dropout(0.3),  # Add dropout layer
     tf.keras.layers.Dense(16,activation='relu'),
-    tf.keras.layers.Dropout(0.33),
-    tf.keras.layers.Dense(32,activation='relu'),
-    tf.keras.layers.Dropout(0.33),
-
+    tf.keras.layers.Dropout(0.3),  # Add dropout layer
     #output layer 
-    tf.keras.layers.Dense(11,activation='softmax')
+    tf.keras.layers.Dense(11,activation='softmax'),
 ])
-
 
 model.summary()
 
@@ -92,14 +99,25 @@ model.compile(loss="categorical_crossentropy",
               optimizer=tf.keras.optimizers.RMSprop(learning_rate=1e-3), metrics=['accuracy'])
 # try optimizer = 'adam'
 history = model.fit(train_data,validation_data=val_data,epochs=epoch_num)
-
+history_pd = pd.DataFrame(history.history)
 y_preds_distribution = model.predict(val_data)
 
 
 results_pd = pd.DataFrame(y_preds_distribution)
-results_pd.insert(0,'predY_3',np.flip(np.argsort(y_preds_distribution, axis =1))[:,2])
-results_pd.insert(0,'predY_2',np.flip(np.argsort(y_preds_distribution, axis =1))[:,1])
-results_pd.insert(0,'predY_1',np.argmax(y_preds_distribution, axis = 1))
+results_pd.insert(0,'predY_3',np.zeros((len(results_pd))))
+results_pd.insert(0,'predY_2',np.zeros((len(results_pd))))
+results_pd.insert(0,'predY_1',np.zeros((len(results_pd))))
 results_pd.insert(0,'trueY',Y_val)
 results_pd.insert(0,'timestep',np.array(time_val))
-results_pd.to_csv('test1_results.csv')
+
+
+for n in range(len(results_pd)):
+    results_pd.at[n , 'predY_1'] = int(np.argwhere(np.array(results_pd.iloc[n, 5:16]) == np.sort(results_pd.iloc[n, 5:16])[-1]))
+    results_pd.at[n , 'predY_2'] = int(np.argwhere(np.array(results_pd.iloc[n, 5:16]) == np.sort(results_pd.iloc[n, 5:16])[-2]))
+    results_pd.at[n , 'predY_3'] = int(np.argwhere(np.array(results_pd.iloc[n, 5:16]) == np.sort(results_pd.iloc[n, 5:16])[-3]))
+
+new_folder = '/rc_scratch/reba1583/CNN_test2'
+os.system('mkdir '+new_folder)
+results_pd.to_csv(new_folder+'/results.csv')
+model.save(new_folder+'/model.keras')
+history_pd.to_csv(new_folder+'/history.csv',index= False)
