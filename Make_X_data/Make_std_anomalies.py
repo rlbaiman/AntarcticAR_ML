@@ -8,7 +8,9 @@ import os
 
 variable_index = int(sys.argv[1])
 
+
 # Functions
+
 def make_IWV_climo_stats(data_input):
     """
     input data and create a symmetric distribution based on the right hand side of the distribution. 
@@ -16,7 +18,7 @@ def make_IWV_climo_stats(data_input):
     of the distribution at 0. 
     """
     mean = data_input.mean(dim = 'time')
-    data1 = data.where(data>= mean)
+    data1 = data_input.where(data_input>= mean)
     data2 = mean - np.abs(data1 - mean)
     data2['time'] = data2.time +pd.Timedelta('1H')
     
@@ -27,53 +29,64 @@ def make_IWV_climo_stats(data_input):
     return(mean_out, std_out)
 
 
-fp_out_3 = '/rc_scratch/reba1583/variable_yr_files_3/'
+fp_out_3 = '/rc_scratch/reba1583/variable_yr_files3/'
+
 variables = [
     'U',
     'V',
-    'T',
     'SLP',
     'EFLUX',
     'LWTNET',
     'sf',
     'IWV',
 ]
+variable_lats = [
+    [-75,-45],
+    [-75,-45],
+    [-75,-45],
+    [-50,-20],
+    [-20,0],
+    [-90,0],
+    [-70,-40]
+]
+
+
 variable = variables[variable_index]
-
-
-if os.path.exists('/rc_scratch/reba1583/variable_yr_files_4/'+variable):
+print(variable)
+    
+if os.path.exists('/rc_scratch/reba1583/variable_yr_files4/'+variable):
     print(variable+' already processed')
 
 else:
     print('creating '+variable)  
 
+    
 
-    data = xr.open_mfdataset(fp_out_3+variable+'*').load()
+    data = xr.open_mfdataset(fp_out_3+variable+'*', chunks = 'auto').load()
     if 'lev' in data.dims:
         data = data.squeeze()
         data = data.drop('lev')
 
-    #add uniform lat_index
-    lat_index = np.arange(0,32)
-    data = data.assign_coords(lat_index=("lat", lat_index))
-    data = data.swap_dims({'lat':'lat_index'})
-
-    if variable == 'LWTNET': # LWTNET is binary so it does not need to be normalized
-        data = xr.where(data == 3,2,0) #change binary data to have a value of 2
-        data.to_netcdf('/rc_scratch/reba1583/variable_yr_files_4/'+variable)
+    if variable =='IWV':
+        # base standard deviation off of right half of IWV distribution
+        climo_mean, climo_std = make_IWV_climo_stats(data) 
     else:
-        if variable =='IWV':
-            # base standard deviation off of right half of IWV distribution
-            climo_mean, climo_std = make_IWV_climo_stats(data) 
-        else:
-            climo_mean = data.groupby("time.month").mean('time')
-            climo_std = data.groupby("time.month").std('time')
+        climo_mean = data.groupby("time.month").mean('time').load()
+        climo_std = data.groupby("time.month").std('time').load()
 
-        stand_anomalies = xr.apply_ufunc(
-            lambda x, m, s: (x - m) / s,
-            data.groupby("time.month"),
-            climo_mean,
-            climo_std,
-        )
-        stand_anomalies = stand_anomalies.drop('month')
-        stand_anomalies.to_netcdf('/rc_scratch/reba1583/variable_yr_files_4/'+variable)
+    stand_anomalies = xr.apply_ufunc(
+        lambda x, m, s: (x - m) / s,
+        data.groupby("time.month"),
+        climo_mean,
+        climo_std,
+    )
+    stand_anomalies = stand_anomalies.drop('month')
+
+     
+    #add uniform lat_index
+    lat_index = np.arange(0,5)
+    stand_anomalies_coarse = stand_anomalies_coarse.assign_coords(lat_index=("lat", lat_index))
+    stand_anomalies_coarse = stand_anomalies_coarse.swap_dims({'lat':'lat_index'})
+
+        
+    stand_anomalies_coarse.to_netcdf('/rc_scratch/reba1583/variable_yr_files4/'+variable)

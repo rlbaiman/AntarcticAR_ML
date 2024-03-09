@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #SBATCH --nodes=1
-#SBATCH --time=1:00:00
-#SBATCH --mem=100G
-#SBATCH --ntasks=8
+#SBATCH --time=3:00:00
+#SBATCH --mem=140G
+#SBATCH --ntasks=1
 #SBATCH --qos=blanca-winters
 #SBATCH --output=Make_anom_data.log
 #SBATCH --job-name=make_data

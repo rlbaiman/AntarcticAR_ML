@@ -5,17 +5,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys
 import os
+import xesmf as xe
 
 year = 1980+int(sys.argv[1])
-
-
-def make_LWTNET_binary(lwtnet_data):
-    """
-    LWTNET is labeled 0 (no convection) or 2(strong tropical convection).
-    We use 2 instead of 1 so it is more comparable to normalized anomaly data
-    """
-    lwtnet_data = xr.where(lwtnet_data<220,2,0)
-    return(lwtnet_data)
 
 def resample(file_name, index): 
     """
@@ -31,26 +23,37 @@ def resample(file_name, index):
     data = data.resample(time = '6H').mean()
     
     if variable_leadtimes[index] !=0:
-        data = data.shift(time = int(variable_leadtimes[index]/6), fill_value = np.nan)
+        data = data.shift(time = int(variable_leadtimes[index]/3), fill_value = np.nan)
     
-    data = data.interp(lon = np.linspace(-180,180,256), lat = np.linspace(variable_lats[index][0], variable_lats[index][1], 32))
-            
-    if variables[i] == 'LWTNET':
-        data = xr.where(data<220,3,0)
- 
-    data.to_netcdf(fp_out_3+file_name+'.nc')
+    ds_out = xr.Dataset({"lat":(["lat"], np.linspace(variable_lats[index][0], variable_lats[index][1], 90), {"units": "degrees_north"}), "lon":(["lon"], np.arange(-180, 180, 2.5), {"units": "degrees_east"})})
+    regridder = xe.Regridder(data, ds_out, "bilinear", periodic = True)
+    ds_out = regridder(data, keep_attrs=True)
+
+    ds_out.to_netcdf(fp_out_3+file_name+'.nc')
 
 
 
 fp = '/pl/active/ATOC_SynopticMet/data/ar_data/Research2/3hrly_merra2_hemisphere/'
-fp_out_1 = '/rc_scratch/reba1583/variable_yr_files/'
-fp_out_2 = '/rc_scratch/reba1583/variable_yr_files_2/'
-fp_out_3 = '/rc_scratch/reba1583/variable_yr_files_3/'
+fp_out_1 = '/rc_scratch/reba1583/variable_yr_files1/'
+fp_out_2 = '/rc_scratch/reba1583/variable_yr_files2/'
+fp_out_3 = '/rc_scratch/reba1583/variable_yr_files3/'
 
 variables = [
     'U',
     'V',
-    'T',
+    'U',
+    'V',
+    'SLP',
+    'EFLUX',
+    'LWTNET',
+    'sf',
+    'IWV',
+]
+variable_names = [
+    'U950',
+    'V950',
+    'U800',
+    'V800',
     'SLP',
     'EFLUX',
     'LWTNET',
@@ -58,6 +61,7 @@ variables = [
     'IWV',
 ]
 variable_files = [
+    fp+str(year)+'*',
     fp+str(year)+'*',
     fp+str(year)+'*',
     fp+str(year)+'*',
@@ -72,7 +76,8 @@ variable_files = [
 variable_levels = [
     '950',
     '950',
-    '950',
+    '800',
+    '800',
     None,
     None,
     None,
@@ -83,10 +88,11 @@ variable_levels = [
 variable_lats = [
     [-75,-45],
     [-75,-45],
-    [-80,-50],
+    [-75,-45],
+    [-75,-45],
     [-75,-45],
     [-50,-20],
-    [-30,0],
+    [-20,0],
     [-90,0],
     [-70,-40]
 ]
@@ -94,7 +100,7 @@ variable_lats = [
 # time before that you would like to select (in hours)
 # note: positive values means we are looking at _hours before AR landfall
 variable_leadtimes = [
-    0,0,0,0,0,96,48,0
+    0,0,0,0,0,0,96,48,0
 ]
 
 
@@ -104,7 +110,6 @@ for i in range(len(variables)):
 
     variable = variables[i]
     file_name = variable+'_'+str(year)
-    
     
     if os.path.exists(fp_out_3+file_name+'.nc'):
         print(file_name+' already processed')
@@ -127,11 +132,8 @@ for i in range(len(variables)):
 
         print(variable+'_'+str(year)+' in variable_yr_files_2')
 
-
-
         resample(file_name, i)
         print(file_name+' in variable_yr_files_3')
-
 
         os.system('rm '+fp_out_1+file_name)
         os.system('rm '+fp_out_2+file_name)
