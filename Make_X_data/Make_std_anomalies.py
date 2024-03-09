@@ -34,6 +34,19 @@ fp_out_3 = '/rc_scratch/reba1583/variable_yr_files3/'
 variables = [
     'U',
     'V',
+    'U',
+    'V',
+    'SLP',
+    'EFLUX',
+    'LWTNET',
+    'sf',
+    'IWV',
+]
+variable_names = [
+    'U950',
+    'V950',
+    'U800',
+    'V800',
     'SLP',
     'EFLUX',
     'LWTNET',
@@ -52,15 +65,16 @@ variable_lats = [
 
 
 variable = variables[variable_index]
+variable_name = variable_names[variable_index]
 print(variable)
     
-if os.path.exists('/rc_scratch/reba1583/variable_yr_files4/'+variable):
+if os.path.exists('/rc_scratch/reba1583/variable_yr_files4/'+variable_name):
     print(variable+' already processed')
 
 else:
     print('creating '+variable)  
 
-    data = xr.open_mfdataset(fp_out_3+variable+'*', chunks = 'auto').load()
+    data = xr.open_mfdataset(fp_out_3+variable_name+'*', chunks = 'auto').load()
     if 'lev' in data.dims:
         data = data.squeeze()
         data = data.drop('lev')
@@ -82,9 +96,9 @@ else:
 
      
     #add uniform lat_index
-    lat_index = np.arange(0,5)
+    lat_index = np.arange(0,90)
     stand_anomalies_coarse = stand_anomalies_coarse.assign_coords(lat_index=("lat", lat_index))
     stand_anomalies_coarse = stand_anomalies_coarse.swap_dims({'lat':'lat_index'})
 
         
-    stand_anomalies_coarse.to_netcdf('/rc_scratch/reba1583/variable_yr_files4/'+variable)
+    stand_anomalies_coarse.to_netcdf('/rc_scratch/reba1583/variable_yr_files4/'+variable_name)
