@@ -60,8 +60,6 @@ if os.path.exists('/rc_scratch/reba1583/variable_yr_files4/'+variable):
 else:
     print('creating '+variable)  
 
-    
-
     data = xr.open_mfdataset(fp_out_3+variable+'*', chunks = 'auto').load()
     if 'lev' in data.dims:
         data = data.squeeze()

@@ -19,12 +19,12 @@ def resample(file_name, index):
     
     if variables[i] == 'sf':
         data = data.reindex(lat=list(reversed(data.lat)))
-        
-    data = data.resample(time = '6H').mean()
     
     if variable_leadtimes[index] !=0:
         data = data.shift(time = int(variable_leadtimes[index]/3), fill_value = np.nan)
     
+    data = data.resample(time = '6H').mean()
+    # regrid spatial
     ds_out = xr.Dataset({"lat":(["lat"], np.linspace(variable_lats[index][0], variable_lats[index][1], 90), {"units": "degrees_north"}), "lon":(["lon"], np.arange(-180, 180, 2.5), {"units": "degrees_east"})})
     regridder = xe.Regridder(data, ds_out, "bilinear", periodic = True)
     ds_out = regridder(data, keep_attrs=True)
@@ -109,7 +109,7 @@ variable_leadtimes = [
 for i in range(len(variables)):
 
     variable = variables[i]
-    file_name = variable+'_'+str(year)
+    file_name = variable_names[i]+'_'+str(year)
     
     if os.path.exists(fp_out_3+file_name+'.nc'):
         print(file_name+' already processed')
@@ -118,19 +118,19 @@ for i in range(len(variables)):
         print('creating '+file_name)  
 
         # select the variable
-        command = 'cdo -select,name='+variable+' '+variable_files[i]+' '+fp_out_1+variable+'_'+str(year)
+        command = 'cdo -select,name='+variable+' '+variable_files[i]+' '+fp_out_1+file_name
         os.system(command)
 
         # select the level if necessary
         if variable_levels[i] is None:
-            command_2 = 'cp '+fp_out_1+variable+'_'+str(year)+' '+fp_out_2+variable+'_'+str(year)
+            command_2 = 'cp '+fp_out_1+file_name+' '+fp_out_2+file_name
             os.system(command_2)
 
         else:
-            command_3 = 'cdo -sellevel,'+variable_levels[i]+' '+fp_out_1+variable+'_'+str(year)+' '+fp_out_2+variable+'_'+str(year)
+            command_3 = 'cdo -sellevel,'+variable_levels[i]+' '+fp_out_1+file_name+' '+fp_out_2+file_name
             os.system(command_3)
 
-        print(variable+'_'+str(year)+' in variable_yr_files_2')
+        print(file_name+' in variable_yr_files_2')
 
         resample(file_name, i)
         print(file_name+' in variable_yr_files_3')
