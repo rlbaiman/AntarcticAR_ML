@@ -26,7 +26,6 @@ del V800
 del U800
 del V950 
 del U950
-del T
 del IWV
 del EFLUX
 del SF
