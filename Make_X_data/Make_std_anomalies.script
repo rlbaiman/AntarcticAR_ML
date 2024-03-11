@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --nodes=1
-#SBATCH --time=3:00:00
+#SBATCH --time=20:00:00
 #SBATCH --mem=140G
 #SBATCH --ntasks=1
 #SBATCH --qos=blanca-winters
@@ -22,5 +22,5 @@ module load cdo/1.8.1
 source /curc/sw/anaconda3/latest
 conda activate research
 
-parallel -j $SLURM_NTASKS python Make_std_anomalies.py ::: {0..7}
+parallel -j $SLURM_NTASKS python Make_std_anomalies.py ::: {0..9}
 

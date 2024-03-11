@@ -14,15 +14,18 @@ EFLUX = xr.open_mfdataset(fp+'EFLUX').EFLUX.transpose('time', 'lon','lat_index')
 LWTNET = xr.open_mfdataset(fp+'LWTNET').LWTNET.transpose('time', 'lon','lat_index').values
 SF = xr.open_mfdataset(fp+'sf').sf.transpose('time', 'lon','lat_index').values
 SLP = xr.open_mfdataset(fp+'SLP').SLP.transpose('time', 'lon','lat_index').values
-T = xr.open_mfdataset(fp+'T').T.transpose('time', 'lon','lat_index').values
-U = xr.open_mfdataset(fp+'U').U.transpose('time', 'lon','lat_index').values
-V = xr.open_mfdataset(fp+'V').V.transpose('time', 'lon','lat_index').values
+U800 = xr.open_mfdataset(fp+'U800').U.transpose('time', 'lon','lat_index').values
+V800 = xr.open_mfdataset(fp+'V800').V.transpose('time', 'lon','lat_index').values
+U950 = xr.open_mfdataset(fp+'U950').U.transpose('time', 'lon','lat_index').values
+V950 = xr.open_mfdataset(fp+'V950').V.transpose('time', 'lon','lat_index').values
 
 data = np.stack([ IWV, EFLUX, LWTNET,
-                 SF, SLP, T, U, V], axis = 3)
+                 SF, SLP, U800, V800, U950, V950], axis = 3)
 
-del V 
-del U
+del V800 
+del U800
+del V950 
+del U950
 del T
 del IWV
 del EFLUX
@@ -36,7 +39,7 @@ Y = np.array(Y).T
 
 
 # times for final xarray
-variable_times = pd.to_datetime(np.array(xr.open_mfdataset(fp+'U').time))
+variable_times = pd.to_datetime(np.array(xr.open_mfdataset(fp+'U800').time))
 
 var_data = dict(
     features = ([ 'time', 'lon', 'lat','n_channel' ], data),
@@ -45,7 +48,7 @@ var_data = dict(
 
 coords = dict(
     time = (['time'], variable_times), 
-    n_channel = (['n_channel'], np.array(['IWV', 'EFLUX', 'LWTNET', 'SF', 'SLP', 'T', 'U', 'V'])),
+    n_channel = (['n_channel'], np.array(['IWV', 'EFLUX', 'LWTNET', 'SF', 'SLP', 'T', 'U800', 'V800', 'U950', 'V950'])),
       
 )
 
@@ -56,19 +59,6 @@ ds = xr.Dataset(
 
 ds = ds.fillna(0)
 
-
-
-## only include the number of no AR examples that is equivalent in size to the most common label
-## This leaves us with a total dataset of 11,553 timesteps and 8,087 training timesteps
-num_noAR = int(np.sort(Y.sum(axis = 0))[-2])
-Y_binary = Y[:,0]
-
-AR_index = np.argwhere(Y_binary==0).squeeze()
-noAR_index = np.argwhere(Y_binary == 1).squeeze()
-np.random.shuffle(noAR_index)
-noAR_index = noAR_index[0:num_noAR]
-select = np.sort(np.concatenate((noAR_index, AR_index)))
-data = ds.isel(time = select)
 
 fp_out = '/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/coarse_2_variable_data_files/'
 data.to_netcdf(fp_out+'full_X_and_Y.nc')

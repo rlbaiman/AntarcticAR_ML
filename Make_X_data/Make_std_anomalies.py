@@ -31,17 +31,7 @@ def make_IWV_climo_stats(data_input):
 
 fp_out_3 = '/rc_scratch/reba1583/variable_yr_files3/'
 
-variables = [
-    'U',
-    'V',
-    'U',
-    'V',
-    'SLP',
-    'EFLUX',
-    'LWTNET',
-    'sf',
-    'IWV',
-]
+
 variable_names = [
     'U950',
     'V950',
@@ -53,33 +43,20 @@ variable_names = [
     'sf',
     'IWV',
 ]
-variable_lats = [
-    [-75,-45],
-    [-75,-45],
-    [-75,-45],
-    [-50,-20],
-    [-20,0],
-    [-90,0],
-    [-70,-40]
-]
 
-
-variable = variables[variable_index]
-variable_name = variable_names[variable_index]
-print(variable)
-    
+variable_name = variable_names[variable_index]    
 if os.path.exists('/rc_scratch/reba1583/variable_yr_files4/'+variable_name):
     print(variable+' already processed')
 
 else:
-    print('creating '+variable)  
+    print('creating '+variable_name)  
 
     data = xr.open_mfdataset(fp_out_3+variable_name+'*', chunks = 'auto').load()
     if 'lev' in data.dims:
         data = data.squeeze()
         data = data.drop('lev')
 
-    if variable =='IWV':
+    if variable_name =='IWV':
         # base standard deviation off of right half of IWV distribution
         climo_mean, climo_std = make_IWV_climo_stats(data) 
     else:
@@ -97,8 +74,8 @@ else:
      
     #add uniform lat_index
     lat_index = np.arange(0,90)
-    stand_anomalies_coarse = stand_anomalies_coarse.assign_coords(lat_index=("lat", lat_index))
-    stand_anomalies_coarse = stand_anomalies_coarse.swap_dims({'lat':'lat_index'})
+    stand_anomalies = stand_anomalies.assign_coords(lat_index=("lat", lat_index))
+    stand_anomalies = stand_anomalies.swap_dims({'lat':'lat_index'})
 
         
-    stand_anomalies_coarse.to_netcdf('/rc_scratch/reba1583/variable_yr_files4/'+variable_name)
+    stand_anomalies.to_netcdf('/rc_scratch/reba1583/variable_yr_files4/'+variable_name)
