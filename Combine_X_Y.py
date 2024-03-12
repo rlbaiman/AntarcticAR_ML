@@ -33,7 +33,7 @@ del SLP
 del LWTNET
 
 # Y data
-Y = pd.read_csv('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/AR_lonslice_binary.csv', index_col = False)
+Y = pd.read_csv('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/AR_lonslice_binary_6hr.csv', index_col = False)
 Y = np.array(Y).T
 
 
