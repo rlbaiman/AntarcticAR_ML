@@ -47,7 +47,7 @@ var_data = dict(
 
 coords = dict(
     time = (['time'], variable_times), 
-    n_channel = (['n_channel'], np.array(['IWV', 'EFLUX', 'LWTNET', 'SF', 'SLP', 'T', 'U800', 'V800', 'U950', 'V950'])),
+    n_channel = (['n_channel'], np.array(['IWV', 'EFLUX', 'LWTNET', 'SF', 'SLP', 'U800', 'V800', 'U950', 'V950'])),
       
 )
 
@@ -60,10 +60,10 @@ ds = ds.fillna(0)
 
 
 fp_out = '/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/coarse_2_variable_data_files/'
-data.to_netcdf(fp_out+'full_X_and_Y.nc')
+ds.to_netcdf(fp_out+'full_X_and_Y.nc')
 
 # split into training, validating, and testing
-index = np.arange(len(data.time))
+index = np.arange(len(ds.time))
 split1, split2 = int(.7*len(index)), int(.85*len(index))
 
 np.random.shuffle(index)
@@ -72,9 +72,9 @@ index_train.sort()
 index_validate.sort()
 index_test.sort()
 
-ds_train = data.isel(time = index_train)
-ds_test = data.isel(time = index_test)
-ds_validate = data.isel(time = index_validate)
+ds_train = ds.isel(time = index_train)
+ds_test = ds.isel(time = index_test)
+ds_validate = ds.isel(time = index_validate)
 
 ds_train.to_netcdf(fp_out+'train.nc')
 ds_test.to_netcdf(fp_out+'test.nc')
