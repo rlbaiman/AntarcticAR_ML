@@ -33,7 +33,7 @@ del SLP
 del LWTNET
 
 # Y data
-Y = pd.read_csv('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/AR_lonslice_binary_6hr.csv', index_col = False)
+Y = pd.read_csv('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/AR_binary_6hrly.csv', index_col = False)
 Y = np.array(Y).T
 
 
@@ -58,8 +58,11 @@ ds = xr.Dataset(
 
 ds = ds.fillna(0)
 
+del data
+del var_data
 
-fp_out = '/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/coarse_2_variable_data_files/'
+
+fp_out = '/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_data_CNN/'
 ds.to_netcdf(fp_out+'full_X_and_Y.nc')
 
 # split into training, validating, and testing
@@ -80,3 +83,26 @@ ds_train.to_netcdf(fp_out+'train.nc')
 ds_test.to_netcdf(fp_out+'test.nc')
 ds_validate.to_netcdf(fp_out+'validate.nc')
 
+del ds_test
+del ds_validate
+print('trimming training data')
+
+# trim the training dataset to have equal timesteps for each label
+label_data = np.array(ds_train.labels_1d)
+num_limit = np.sum(label_data, axis = 0).min()
+
+true_index = np.argwhere(label_data[:,5] == 1).squeeze()# get index for each category
+select = np.random.choice(true_index, num_limit) # choose num_limit indeces for each category
+
+selection = np.empty((0), int)
+for i in range(np.shape(label_data)[1]):
+    true_index = np.argwhere(label_data[:,i] == 1).squeeze() # get index for each category
+    
+    already_selected = np.intersect1d(true_index, selection)
+    available_to_select = np.setdiff1d(true_index, selection)
+    select = np.random.choice(available_to_select, np.max((0, num_limit - len(already_selected))), replace = False) # choose num_limit indeces for each category
+
+    selection = np.append(selection, select)
+    
+ds_train_trim = ds_train.isel(time = np.sort(np.unique(selection)))
+ds_train_trim.to_netcdf(fp_out+'train_trim.nc')

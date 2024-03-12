@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --time=4:00:00
-#SBATCH --mem=120G
+#SBATCH --mem=140G
 #SBATCH --ntasks=10
 #SBATCH --qos=blanca-winters
 #SBATCH --output=Combine_X_Y.log
