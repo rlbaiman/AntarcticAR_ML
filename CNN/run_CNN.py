@@ -11,24 +11,24 @@ from gewitter_functions import get_contingency_table,make_performance_diagram_ax
 from gewitter_functions import get_acc
 
 ## Inputs
-batch_size = 64
-epoch_num = 100
+batch_size = 32
+epoch_num = 150
 
 
-ds_train = xr.open_dataset('/rc_scratch/reba1583/CNN_data_multiAR/train.nc')
-ds_val = xr.open_dataset('/rc_scratch/reba1583/CNN_data_multiAR/validate.nc')
+ds_train = xr.open_dataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_Data_CNN/train_trim.nc')
+ds_val = xr.open_dataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_Data_CNN/validate.nc')
 
 train_random_shuffle = np.arange(len(ds_train.features))
 np.random.shuffle(train_random_shuffle )
 
 X_train = ds_train.features.values[train_random_shuffle]
-Y_train = ds_train.labels_1d.values[train_random_shuffle]
+Y_train = ds_train.labels_1d.values[:,1:][train_random_shuffle] # don't include the no AR category
 time_train = ds_train.time[train_random_shuffle]
 
 val_random_shuffle = np.arange(len(ds_val.features))
 np.random.shuffle(val_random_shuffle)
 X_val = ds_val.features.values[val_random_shuffle]
-Y_val = ds_val.labels_1d.values[val_random_shuffle]
+Y_val = ds_val.labels_1d.values[:,1:][val_random_shuffle] # don't include the no AR category
 time_val = ds_val.time[val_random_shuffle]
 
 train_data = tf.data.Dataset.from_tensor_slices((X_train, Y_train))
@@ -45,59 +45,28 @@ for batch in val_data:
 
 
 model = tf.keras.Sequential([
-    tf.keras.layers.Conv2D(64, (3, 3), padding='same', input_shape=(train_data.element_spec[0].shape[1:])),
-    tf.keras.layers.BatchNormalization(),
+    tf.keras.layers.Conv2D(20, (2, 2), padding='same', input_shape=(train_data.element_spec[0].shape[1:])),
     tf.keras.layers.LeakyReLU(alpha=0.01),
-
-    tf.keras.layers.Conv2D(64, (3, 3), padding='same'),
-    tf.keras.layers.BatchNormalization(),
+    tf.keras.layers.Dropout(0.1),
+    tf.keras.layers.Conv2D(20, (2, 2), padding='same', input_shape=(train_data.element_spec[0].shape[1:])),
     tf.keras.layers.LeakyReLU(alpha=0.01),
-    
-    tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),  # Add max pooling layer
-
-    tf.keras.layers.Conv2D(32, (3, 3), padding='same'),
-    tf.keras.layers.BatchNormalization(),
+    tf.keras.layers.Dropout(0.1),
+    tf.keras.layers.Conv2D(50, (10, 10), padding='same', input_shape=(train_data.element_spec[0].shape[1:])),
     tf.keras.layers.LeakyReLU(alpha=0.01),
-
-    tf.keras.layers.Conv2D(32, (3, 3), padding='same'),
-    tf.keras.layers.BatchNormalization(),
-    tf.keras.layers.LeakyReLU(alpha=0.01),
-
-    tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),  # Add max pooling layer
-
-    tf.keras.layers.Conv2D(64, (3, 3), padding='same'),
-    tf.keras.layers.BatchNormalization(),
-    tf.keras.layers.LeakyReLU(alpha=0.01),
-
-    tf.keras.layers.Conv2D(64, (3, 3), padding='same'),
-    tf.keras.layers.BatchNormalization(),
-    tf.keras.layers.LeakyReLU(alpha=0.01),
-
-    tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),  # Add max pooling layer
-
+    tf.keras.layers.Dropout(0.1),
     tf.keras.layers.GlobalAveragePooling2D(),
-    tf.keras.layers.Dropout(0.5),
 
-    tf.keras.layers.Dense(256, activation='relu'),
-    tf.keras.layers.Dropout(0.3),
-    tf.keras.layers.Dense(64,activation='relu'),
-    tf.keras.layers.Dropout(0.3),  # Add dropout layer
-    tf.keras.layers.Dense(64, activation='relu'),  # Add dense layer
-    tf.keras.layers.Dropout(0.3),  # Add dropout layer
-    tf.keras.layers.Dense(32, activation='relu'),  # Add dense layer
-    tf.keras.layers.Dropout(0.3),  # Add dropout layer
-    tf.keras.layers.Dense(16,activation='relu'),
-    tf.keras.layers.Dropout(0.3),  # Add dropout layer
-    #output layer 
-    tf.keras.layers.Dense(11,activation='sigmoid'),
+    tf.keras.layers.Dense(100, activation='relu'),
+    tf.keras.layers.BatchNormalization(),
+    tf.keras.layers.Dense(100, activation='relu'),
+    tf.keras.layers.BatchNormalization(),
+
+    tf.keras.layers.Dense(20,activation='sigmoid'),
 ])
 
 model.summary()
-
-
-model.compile(loss="categorical_crossentropy",
-              optimizer=tf.keras.optimizers.RMSprop(learning_rate=1e-3), metrics=['accuracy'])
-# try optimizer = 'adam'
+model.compile(loss="mse",
+              optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3), metrics=['accuracy'])
 history = model.fit(train_data,validation_data=val_data,epochs=epoch_num)
 history_pd = pd.DataFrame(history.history)
 y_preds_distribution = model.predict(val_data)
@@ -110,7 +79,7 @@ val_pd = pd.DataFrame(Y_val)
 val_pd = val_pd.set_index(np.array(time_val))
 
 
-new_folder = '/rc_scratch/reba1583/CNN_test3'
+new_folder = '/rc_scratch/reba1583/CNN_new3'
 os.system('mkdir '+new_folder)
 results_pd.to_csv(new_folder+'/results.csv')
 val_pd.to_csv(new_folder+'/val.csv')

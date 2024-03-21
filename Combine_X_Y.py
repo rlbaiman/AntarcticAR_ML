@@ -18,9 +18,10 @@ U800 = xr.open_mfdataset(fp+'U800').U.transpose('time', 'lon','lat_index').value
 V800 = xr.open_mfdataset(fp+'V800').V.transpose('time', 'lon','lat_index').values
 U950 = xr.open_mfdataset(fp+'U950').U.transpose('time', 'lon','lat_index').values
 V950 = xr.open_mfdataset(fp+'V950').V.transpose('time', 'lon','lat_index').values
+AODANA = xr.open_mfdataset(fp+'AODANA').AODANA.transpose('time', 'lon','lat_index').values
 
 data = np.stack([ IWV, EFLUX, LWTNET,
-                 SF, SLP, U800, V800, U950, V950], axis = 3)
+                 SF, SLP, U800, V800, U950, V950, AODANA], axis = 3)
 
 del V800 
 del U800
@@ -31,6 +32,7 @@ del EFLUX
 del SF
 del SLP
 del LWTNET
+del AODANA
 
 # Y data
 Y = pd.read_csv('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/AR_binary_6hrly.csv', index_col = False)
@@ -47,7 +49,7 @@ var_data = dict(
 
 coords = dict(
     time = (['time'], variable_times), 
-    n_channel = (['n_channel'], np.array(['IWV', 'EFLUX', 'LWTNET', 'SF', 'SLP', 'U800', 'V800', 'U950', 'V950'])),
+    n_channel = (['n_channel'], np.array(['IWV', 'EFLUX', 'LWTNET', 'SF', 'SLP', 'U800', 'V800', 'U950', 'V950', 'AODANA'])),
       
 )
 
@@ -62,7 +64,7 @@ del data
 del var_data
 
 
-fp_out = '/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_data_CNN/'
+fp_out = '/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_Data_CNN/'
 ds.to_netcdf(fp_out+'full_X_and_Y.nc')
 
 # split into training, validating, and testing
@@ -79,7 +81,7 @@ ds_train = ds.isel(time = index_train)
 ds_test = ds.isel(time = index_test)
 ds_validate = ds.isel(time = index_validate)
 
-ds_train.to_netcdf(fp_out+'train.nc')
+# ds_train.to_netcdf(fp_out+'train.nc')
 ds_test.to_netcdf(fp_out+'test.nc')
 ds_validate.to_netcdf(fp_out+'validate.nc')
 

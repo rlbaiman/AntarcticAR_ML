@@ -39,68 +39,75 @@ fp_out_2 = '/rc_scratch/reba1583/variable_yr_files2/'
 fp_out_3 = '/rc_scratch/reba1583/variable_yr_files3/'
 
 variables = [
-    'U',
-    'V',
-    'U',
-    'V',
-    'SLP',
-    'EFLUX',
-    'LWTNET',
-    'sf',
-    'IWV',
+#     'U',
+#     'V',
+#     'U',
+#     'V',
+#     'SLP',
+#     'EFLUX',
+#     'LWTNET',
+#     'sf',
+#     'IWV',
+    'AODANA'
+    
 ]
 variable_names = [
-    'U950',
-    'V950',
-    'U800',
-    'V800',
-    'SLP',
-    'EFLUX',
-    'LWTNET',
-    'sf',
-    'IWV',
+#     'U950',
+#     'V950',
+#     'U800',
+#     'V800',
+#     'SLP',
+#     'EFLUX',
+#     'LWTNET',
+#     'sf',
+#     'IWV',
+    'AODANA'
 ]
 variable_files = [
-    fp+str(year)+'*',
-    fp+str(year)+'*',
-    fp+str(year)+'*',
-    fp+str(year)+'*',
-    fp+str(year)+'*',
-    fp+'EFLUX/EFLUX_'+str(year)+'*',
-    fp+'LWTNET/LWTNET_'+str(year)+'*',
-    fp+'200streamfunc/sf_'+str(year)+'*',
-    fp+'IWV/'+str(year)+'*',
+#     fp+str(year)+'*',
+#     fp+str(year)+'*',
+#     fp+str(year)+'*',
+#     fp+str(year)+'*',
+#     fp+str(year)+'*',
+#     fp+'EFLUX/EFLUX_'+str(year)+'*',
+#     fp+'LWTNET/LWTNET_'+str(year)+'*',
+#     fp+'200streamfunc/sf_'+str(year)+'*',
+#     fp+'IWV/'+str(year)+'*',
+    fp+'aerosol/'+str(year)+'*',
     
 ]
 
 variable_levels = [
-    '950',
-    '950',
-    '800',
-    '800',
-    None,
-    None,
-    None,
-    None, 
-    None,
+#     '950',
+#     '950',
+#     '800',
+#     '800',
+#     None,
+#     None,
+#     None,
+#     None, 
+#     None,
+    None
 ]
 
 variable_lats = [
-    [-75,-45],
-    [-75,-45],
-    [-75,-45],
-    [-75,-45],
-    [-75,-45],
-    [-50,-20],
-    [-20,0],
-    [-90,0],
+#     [-75,-45],
+#     [-75,-45],
+#     [-75,-45],
+#     [-75,-45],
+#     [-75,-45],
+#     [-50,-20],
+#     [-20,0],
+#     [-90,0],
+#     [-70,-40],
     [-70,-40]
 ]
 
 # time before that you would like to select (in hours)
 # note: positive values means we are looking at _hours before AR landfall
 variable_leadtimes = [
-    0,0,0,0,0,0,96,48,0
+#     0,0,0,0,0,0,96,48,0,
+    0
 ]
 
 

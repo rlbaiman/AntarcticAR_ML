@@ -33,15 +33,16 @@ fp_out_3 = '/rc_scratch/reba1583/variable_yr_files3/'
 
 
 variable_names = [
-    'U950',
-    'V950',
-    'U800',
-    'V800',
-    'SLP',
-    'EFLUX',
-    'LWTNET',
-    'sf',
-    'IWV',
+#     'U950',
+#     'V950',
+#     'U800',
+#     'V800',
+#     'SLP',
+#     'EFLUX',
+#     'LWTNET',
+#     'sf',
+#     'IWV',
+    'AODANA'
 ]
 
 variable_name = variable_names[variable_index]    
