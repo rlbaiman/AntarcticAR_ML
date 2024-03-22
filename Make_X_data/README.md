@@ -19,7 +19,7 @@
 |9 |Upwards Latent Energy Flux|  |    -75, -20 |0|
 |10||  |  |1|
 |11||  |   |2|
-|12 ||  | |4|
+|12 |Tropical Convection Anomaly|  |-20, 0 |4|
 |13||  | |6|
 |14||  | |8|
 |15 | 4 day averaged Stream Function| |   -90, 0 |0 to 3 |
