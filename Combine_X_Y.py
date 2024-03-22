@@ -35,7 +35,7 @@ del LWTNET
 del AODANA
 
 # Y data
-Y = pd.read_csv('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/AR_binary_6hrly.csv', index_col = False)
+Y = pd.read_csv('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/AR_binary_daily.csv', index_col = False)
 Y = np.array(Y).T
 
 
