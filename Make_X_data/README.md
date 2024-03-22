@@ -17,31 +17,19 @@
 |7| |  | |1|
 |8| |  | |2|
 |9 |Upwards Latent Energy Flux|  |    -75, -20 |0|
-|10|Upwards Latent Energy Flux|  |    -75, -20 |1|
-|11|Upwards Latent Energy Flux|  |    -75, -20 |2|
-|12 |Tropical Convection|  |   -20, 0 |4|
-|13|Tropical Convection|  |    -20, 0 |6|
-|14|Tropical Convection|  |   -20, 0 |8|
-|12 | 4 day averaged Stream Function| |   -90, 0 |0 to 3 |
-|13 | | | |4 to 8 |
-|14|IWV|  |    -75, -40 |0|
-|15|IWV|  |    -75, -40 |1|
-|16|IWV|  |    -75, -40 |2|
-|17| Aerosol Optical Depth| |    -75, -40 |0|
-|18| | | |1|
-|18| | | |2|
-
-|4|IWV|  |    -70, -40 ||
-|2 |Upwards Latent Energy Flux|  |    -50, -20 ||
-|3 |Tropical Convection| |  -20, 0 | 4 days|
-|4 |Stream Function| |   -90, 0 |2 days |
-|5| SLP|  |    -75, -45 ||
-|6| U wind | 800hPa |    -75, -45 ||
-|7| V wind | 800hPa |    -75, -45 ||
-|8| U wind | 950hPa |    -75, -45 ||
-|9| V wind | 950hPa |    -75, -45 ||
-
-
+|10||  |  |1|
+|11||  |   |2|
+|12 ||  | |4|
+|13||  | |6|
+|14||  | |8|
+|15 | 4 day averaged Stream Function| |   -90, 0 |0 to 3 |
+|16 | | | |4 to 8 |
+|17|IWV|  |    -75, -40 |0|
+|18|IWV|  |    -75, -40 |1|
+|19|IWV|  |    -75, -40 |2|
+|20| Aerosol Optical Depth| |    -75, -40 |0|
+|21| | | |1|
+|22| | | |2|
 
 
 * Select the year, level, and variable using cdo commands. These are saved to scratch directories because memory did not allow loading these to work with
