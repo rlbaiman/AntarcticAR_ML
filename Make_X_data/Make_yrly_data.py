@@ -75,7 +75,7 @@ variable_names = [
     
     'LWTNET_lead3', 'LWTNET_lead4', 'LWTNET_lead5',
     
-    'sf_lead0','sf_5',
+    'sf_lead0','sf_4',
     
     'IWV_lead0', 'IWV_lead1', 'IWV_lead2',
 
@@ -152,7 +152,7 @@ variable_leadtimes = [
     0,
     0, 24,48,
     0, 24,48,
-    72, 96, 120,
+    96, 144, 192,
     0,120,
     0,24,48,
     0, 24,48,
