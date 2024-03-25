@@ -22,5 +22,5 @@ module load cdo/1.8.1
 source /curc/sw/anaconda3/latest
 conda activate research
 
-parallel -j $SLURM_NTASKS python Make_std_anomalies.py ::: {0..9}
+parallel -j $SLURM_NTASKS python Make_std_anomalies.py ::: {0..19}
 

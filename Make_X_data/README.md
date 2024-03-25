@@ -27,9 +27,6 @@
 |17|IWV|  |    -75, -40 |0|
 |18|IWV|  |    -75, -40 |1|
 |19|IWV|  |    -75, -40 |2|
-|20| Aerosol Optical Depth| |    -75, -40 |0|
-|21| | | |1|
-|22| | | |2|
 
 
 * Select the year, level, and variable using cdo commands. These are saved to scratch directories because memory did not allow loading these to work with
@@ -50,6 +47,7 @@
         Calculate standard deviation by assuming a normal distribution of the right half 
         and a mirror image of the right half. 
 * Based on the monthly mean and standard deviation, calculate the monthly standardized anomalies
+* reduce precision to float32 to decrease data size 
 * Save to a new directory 
 
 ### 2. Plot X variable data
