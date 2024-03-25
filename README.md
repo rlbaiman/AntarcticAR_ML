@@ -9,7 +9,6 @@ Exploring the predictability of Antarctic ARs using UNETs.
 
 |Category | Num Training Days |
 |:---:| :---:     | 
-
 |1 | 448 |
 |2 | 424 |
 |3 | 418 |
