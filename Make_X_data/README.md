@@ -6,38 +6,48 @@
 * Run in parallel over year 1980 - 2019
 * Variables include:'
 
-|| Variable | Level | Lats Included | Lead Times |
+|| Variable | Level | Lats Included | Lead Times (days) |
 |:---:| :---:     |  :---:|  :---:        | :---: |
-|1| U wind | 950hPa |    -75, -45 ||
-|2| V wind | 950hPa |    -75, -45 ||
-|3| Temp | 950hPa |   -80, -50 ||
-|4| SLP|  |    -75, -45 ||
-|5 |Upwards Latent Energy Flux|  |    -50, -20 ||
-|6 |Tropical Convection| |  -30, 0 | 4 days|
-|7 |Stream Function| |   -90, 0 |2 days |
-|8|IWV|  |    -70, -40 ||
+|1|H| 500hPa |    -75, -40 |0|
+|2||  |     |1|
+|3|| |   |2|
+|4| U wind | 800hPa |    -75, -45 |0|
+|5| V wind | 800hPa |    -75, -45 |0|
+|6| SLP|  |    -75, -40 |0|
+|7| |  | |1|
+|8| |  | |2|
+|9 |Upwards Latent Energy Flux|  |    -75, -20 |0|
+|10||  |  |1|
+|11||  |   |2|
+|12 |Tropical Convection Anomaly|  |-20, 0 |4|
+|13||  | |6|
+|14||  | |8|
+|15 | 4 day averaged Stream Function| |   -90, 0 |0 to 3 |
+|16 | | | |4 to 8 |
+|17|IWV|  |    -75, -40 |0|
+|18|IWV|  |    -75, -40 |1|
+|19|IWV|  |    -75, -40 |2|
+
+
 * Select the year, level, and variable using cdo commands. These are saved to scratch directories because memory did not allow loading these to work with
 * Call function Resample
-    * Resample to 6hourly mean (this may smooth some anomalous values but we will calculate the standardized anomalies based on these values so we should capture anomalies)
+    * Resample to daily mean (this may smooth some anomalous values but we will calculate the standardized anomalies based on these values so we should capture anomalies)
     * If you want a leadtime x, shift data forward by that amount, leaving nan values for the first x hours 
-    * Interpolate data using the Lats Included and -180 to 180 longitude for each variable. 
-    (lon: 576, lat: 181) ->  (lon: 256, lat: 32)
-    * For Tropical Convection variable, make this binary data with values of 3 if the outgoing longwave radiation is below 220 W/m2, 0 everywhere else. 
+    * Interpolate data using the Lats Included and -180 to 180 longitude for each variable. (lon: 576, lat: 181) ->  (lon: 144, lat: 90). This maintains a minimum gridcell area at the equator of 210x111km implying a synoptically-resolved minimum resolution of 840x444km. 
 * Save as yearly data
 
 ### 2. Make Standardized Anomalies
 #### Make_std_anomalies.py, Make_std_anomalies.script
 
-* Run in parallel over list of 8 variables
-* Add a uniform lat_index from 0 to 32 to make combining X data easy,
+* Run in parallel over list of 9 variables
+* Add a uniform lat_index from 0 to 89 to make combining X data easy,
     leave the true lats for each variable as a coordinate
-* Tropical convection variable does not need to be normalized because it is binary,
-    so pass this data along to a new scratch directory
 * Calculate monthly mean and standard deviation of all other variables
     * IWV is not normaly distributed because it starts at zero and has a long right tail.
         Calculate standard deviation by assuming a normal distribution of the right half 
         and a mirror image of the right half. 
 * Based on the monthly mean and standard deviation, calculate the monthly standardized anomalies
+* reduce precision to float32 to decrease data size 
 * Save to a new directory 
 
 ### 2. Plot X variable data
