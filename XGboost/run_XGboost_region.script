@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#SBATCH --nodes=1
+#SBATCH --time=30:00:00
+#SBATCH --mem=100G
+#SBATCH --qos=blanca-winters
+#SBATCH --output=run_XGB.log
+#SBATCH --job-name=run_xgb
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user="rebecca.baiman@colorado.edu"
+
+module purge
+module load python
+
+source /curc/sw/anaconda3/latest
+conda activate ML
+
+python run_XGboost_region.py
+
