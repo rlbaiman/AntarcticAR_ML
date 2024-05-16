@@ -7,6 +7,9 @@ import sys
 import os
 import xesmf as xe
 import glob
+sys.path.insert(1, '/projects/reba1583/Research3/AntarcticAR_ML/')
+from define_variables import get_variables, get_variable_names, get_variable_file, get_variable_level, get_variable_lats, get_variable_leadtimes
+
 
 year = 1980+int(sys.argv[1])
 
@@ -42,7 +45,7 @@ def resample(file_name, directory, index):
         data = roller.mean()
     
     # regrid spatial
-    ds_out = xr.Dataset({"lat":(["lat"], np.linspace(variable_lats[index][0], variable_lats[index][1], 90), {"units": "degrees_north"}), "lon":(["lon"], np.arange(-180, 180, 2.5), {"units": "degrees_east"})})
+    ds_out = xr.Dataset({"lat":(["lat"], variable_lats[index], {"units": "degrees_north"}), "lon":(["lon"], np.arange(-180, 180, 2.5), {"units": "degrees_east"})})
     regridder = xe.Regridder(data, ds_out, "bilinear", periodic = True)
     ds_out = regridder(data, keep_attrs=True)
 
@@ -55,74 +58,21 @@ fp_out_1 = '/rc_scratch/reba1583/variable_yr_files1/'
 fp_out_2 = '/rc_scratch/reba1583/variable_yr_files2/'
 fp_out_3 = '/rc_scratch/reba1583/variable_yr_files3/'
 
-variables = [
-    'H','H','H',
-    'U',
-    'V',
-    'SLP','SLP','SLP',
-    'EFLUX','EFLUX','EFLUX',
-    'LWTNET','LWTNET','LWTNET',
-    'sf', 'sf',
-    'IWV','IWV','IWV',
-#     'AODANA', 'AODANA', 'AODANA'  
-]
-variable_names = [
-    'H500_lead0', 'H500_lead1', 'H500_lead2',
-    'U800_lead0',
-    'V800_lead0',
-    'SLP_lead0', 'SLP_lead1', 'SLP_lead2',
-    'EFLUX_lead0', 'EFLUX_lead1', 'EFLUX_lead2',
-    'LWTNET_lead3', 'LWTNET_lead4', 'LWTNET_lead5', #change these to 4, 6, 8
-    'sf_lead0','sf_lead4',
-    'IWV_lead0', 'IWV_lead1', 'IWV_lead2',
-#     'AODANA_lead0', 'AODANA_lead1', 'AODANA_lead2'
-]
-variable_files = [
-    fp+str(year)+'*',fp+str(year)+'*',fp+str(year)+'*',    
+
+variables = get_variables()
+variable_names = get_variable_names()
+variable_levels = get_variable_level()
+variable_lats = get_variable_lats()
+variable_leadtimes = get_variable_leadtimes()
+
+variable_files = [fp+str(year)+'*',fp+str(year)+'*',fp+str(year)+'*',    
     fp+str(year)+'*',    
     fp+str(year)+'*',    
     fp+str(year)+'*', fp+str(year)+'*', fp+str(year)+'*',    
     fp+'EFLUX/EFLUX_'+str(year)+'*', fp+'EFLUX/EFLUX_'+str(year)+'*', fp+'EFLUX/EFLUX_'+str(year)+'*',    
     fp+'LWTNET/LWTNET_'+str(year)+'*', fp+'LWTNET/LWTNET_'+str(year)+'*', fp+'LWTNET/LWTNET_'+str(year)+'*',        
     fp+'200streamfunc/sf_'+str(year)+'*', '200streamfunc/sf_'+str(year)+'*',    
-    fp+'IWV/'+str(year)+'*', fp+'IWV/'+str(year)+'*', fp+'IWV/'+str(year)+'*',    
-#     fp+'aerosol/'+str(year)+'*', fp+'aerosol/'+str(year)+'*', fp+'aerosol/'+str(year)+'*',   
-]
-variable_levels = [
-    '500', '500', '500',    
-    '800',    
-    '800',    
-    None,  None,  None,   
-    None, None, None,     
-    None,None, None,    
-    None, None,    
-    None, None, None,     
-#     None, None, None, 
-]
-variable_lats = [
-    [-75,-40], [-75,-40], [-75,-40],    
-    [-75,-40],    
-    [-75,-40],    
-    [-75,-40], [-75,-40],[-75,-40],    
-    [-75,-20], [-75,-20], [-75,-20],    
-    [-20,0], [-20,0], [-20,0],     
-    [-90,0], [-90,0],    
-    [-75,-40], [-75,-40], [-75,-40],
-#     [-75,-40], [-75,-40], [-75,-40],
-]
-# time before that you would like to select (in hours)
-# note: positive values means we are looking at _hours before AR landfall
-variable_leadtimes = [
-    0, 24,48,
-    0,
-    0,
-    0, 24,48,
-    0, 24,48,
-    96, 144, 192,
-    0,96,
-    0,24,48,
-#     0, 24,48,
-]
+    fp+'IWV/'+str(year)+'*', fp+'IWV/'+str(year)+'*', fp+'IWV/'+str(year)+'*',  ]
 
 
 for i in range(len(variables)):
@@ -153,6 +103,6 @@ for i in range(len(variables)):
         os.system('rm '+fp_out_2+file_name)
         
 
-        if ('2' in variable_names[i][-1]) | ('5' in variable_names[i][-1]): #if it is the last file of that year and that variable
-            os.system('rm '+fp_out_1+file_name)
+#         if ('2' in variable_names[i][-1]) | ('5' in variable_names[i][-1]): #if it is the last file of that year and that variable
+#             os.system('rm '+fp_out_1+file_name)
         

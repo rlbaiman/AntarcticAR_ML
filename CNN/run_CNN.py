@@ -14,21 +14,33 @@ from gewitter_functions import get_acc
 batch_size = 32
 epoch_num = 50
 
-
 ds_train = xr.open_dataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_Daily_Data_CNN/train_full.nc')
 ds_val = xr.open_dataset('/pl/active/ATOC_SynopticMet/data/ar_data/Research3/Data/Combined_Daily_Data_CNN/validate_full.nc')
+
+## make Y data chunking land and ocean together
+all_Y = ds_train.labels_1d.values
+all_Y_val = ds_val.labels_1d.values
+Y_train = []
+Y_val = []
+for i in range(10):
+    Y_train.append(np.max(all_Y[:,[i,i+10]],1))
+    Y_val.append(np.max(all_Y_val[:,[i,i+10]],1))
+Y_train = np.vstack(Y_train).T
+Y_val = np.vstack(Y_val).T
 
 train_random_shuffle = np.arange(len(ds_train.features))
 np.random.shuffle(train_random_shuffle )
 
 X_train = ds_train.features.values[train_random_shuffle]
-Y_train = ds_train.labels_1d.values[train_random_shuffle] 
+# Y_train = ds_train.labels_1d.values[train_random_shuffle] 
+Y_train = Y_train[train_random_shuffle] 
 time_train = ds_train.time[train_random_shuffle]
 
 val_random_shuffle = np.arange(len(ds_val.features))
 np.random.shuffle(val_random_shuffle)
 X_val = ds_val.features.values[val_random_shuffle]
-Y_val = ds_val.labels_1d.values[val_random_shuffle]
+# Y_val = ds_val.labels_1d.values[val_random_shuffle]
+Y_val = Y_val[val_random_shuffle]
 time_val = ds_val.time[val_random_shuffle]
 
 train_data = tf.data.Dataset.from_tensor_slices((X_train, Y_train))
@@ -59,7 +71,7 @@ model = tf.keras.Sequential([
     
 
     tf.keras.layers.Dense(100, activation='relu'),
-    tf.keras.layers.Dense(20,activation='sigmoid'),
+    tf.keras.layers.Dense(10,activation='sigmoid'),
 ])
 
 model.summary()
@@ -78,7 +90,7 @@ val_pd = pd.DataFrame(Y_val)
 val_pd = val_pd.set_index(np.array(time_val))
 
 
-new_folder = '/rc_scratch/reba1583/CNN_daily_test3_fulldata'
+new_folder = '/rc_scratch/reba1583/CNN_daily_test4_fulldata'
 os.system('mkdir '+new_folder)
 results_pd.to_csv(new_folder+'/results.csv')
 val_pd.to_csv(new_folder+'/val.csv')

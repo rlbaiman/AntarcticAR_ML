@@ -5,6 +5,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys
 import os
+sys.path.insert(1, '/projects/reba1583/Research3/AntarcticAR_ML/')
+from define_variables import get_variable_names
+
 
 variable_index = int(sys.argv[1])
 
@@ -32,28 +35,9 @@ def make_IWV_climo_stats(data_input):
 fp_out_3 = '/rc_scratch/reba1583/variable_yr_files3/'
 
 
-variable_names = [
-    'H500_lead0', 'H500_lead1', 'H500_lead2',
-    
-    'U800_lead0',
-    
-    'V800_lead0',
-    
-    'SLP_lead0', 'SLP_lead1', 'SLP_lead2',
-    
-    'EFLUX_lead0', 'EFLUX_lead1', 'EFLUX_lead2',
-    
-    'LWTNET_lead3', 'LWTNET_lead4', 'LWTNET_lead5',
-    
-    'sf_lead0','sf_lead4',
-    
-    'IWV_lead0', 'IWV_lead1', 'IWV_lead2',
-
-#     'AODANA_lead0', 'AODANA_lead1', 'AODANA_lead2'
-]
-
-
+variable_names = get_variable_names()
 variable_name = variable_names[variable_index]    
+
 if os.path.exists('/rc_scratch/reba1583/variable_yr_files4/'+variable_name):
     print(variable_name+' already processed')
 
@@ -79,12 +63,6 @@ else:
         climo_std,
     )
     stand_anomalies = stand_anomalies.drop('month')
-
-     
-    #add uniform lat_index
-    lat_index = np.arange(0,90)
-    stand_anomalies = stand_anomalies.assign_coords(lat_index=("lat", lat_index))
-    stand_anomalies = stand_anomalies.swap_dims({'lat':'lat_index'})
 
     stand_anomalies = stand_anomalies.astype('float32') # lower precision to save memory
     stand_anomalies.to_netcdf('/rc_scratch/reba1583/variable_yr_files4/'+variable_name)

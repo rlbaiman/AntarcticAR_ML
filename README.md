@@ -29,5 +29,4 @@ Exploring the predictability of Antarctic ARs using UNETs.
 |18| 472 |
 |19 | 415 |
 |20| 382|
-|:---:| :---:     | 
 |Not a cagegory: no AR|488   | 
