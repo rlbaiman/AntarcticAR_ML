@@ -1,8 +1,9 @@
 #!/bin/bash
 
 #SBATCH --nodes=1
-#SBATCH --time=30:00:00
-#SBATCH --mem=100G
+#SBATCH --time=12:00:00
+#SBATCH --mem=120G
+#SBATCH --ntasks=5
 #SBATCH --qos=blanca-winters
 #SBATCH --output=run_XGB.log
 #SBATCH --job-name=run_xgb
@@ -11,9 +12,11 @@
 
 module purge
 module load python
+module load gnu_parallel
 
 source /curc/sw/anaconda3/latest
 conda activate ML
 
 python run_XGboost_region.py
 
+parallel -j $SLURM_NTASKS python run_XGboost_region.py ::: {0..9}
